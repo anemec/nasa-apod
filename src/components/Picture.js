@@ -1,5 +1,9 @@
 import React, { useState, useEffect } from "react";
-import getPicture from "../utils/getPicture";
+import {
+  getPicture,
+  getPrevPicture,
+  getNextPicture,
+} from "../utils/getPicture";
 
 const d = {
   copyright: "U. Mishra",
@@ -23,20 +27,45 @@ const Picture = () => {
     }
     // getData();
     setPicData(d);
-  });
+  }, []);
+
+  async function prevPicture() {
+    let result = await getPrevPicture(picData.date);
+    setPicData(result);
+  }
+
+  async function nextPicture() {
+    let result = await getNextPicture(picData.date);
+    setPicData(result);
+  }
 
   return (
-    <div className="picture-card">
-      <h1 className="picture-card__title">{picData && picData.title}</h1>
-      <img
-        className="picture-card__image"
-        src={picData && picData.hdurl}
-        alt={picData && picData.title}
-      />
-      <p className="picture-card__explanation">
-        {picData && picData.explanation}
-      </p>
-    </div>
+    <>
+      <div className="picture-card">
+        <h1 className="picture-card__title">{picData && picData.title}</h1>
+        <div className="picture-card__image-holder">
+          <img
+            className="picture-card__image"
+            src={picData && picData.hdurl}
+            alt={picData && picData.title}
+          />
+        </div>
+      </div>
+      <div className="btn-container">
+        <button
+          className="btn-container__btn btn-container__btn-left"
+          onClick={() => prevPicture()}
+        >
+          {"<"}
+        </button>
+        <button
+          className="btn-container__btn btn-container__btn-right"
+          onClick={() => nextPicture()}
+        >
+          {">"}
+        </button>
+      </div>
+    </>
   );
 };
 
