@@ -14,7 +14,8 @@
   display: inline-block;
   background-color: rgb(173, 166, 241);
   padding: 2rem;
-  width: 75%;
+  width: 80vw;
+  max-width: 80rem;
   height: 80vh;
   margin-top: 5rem;
   border-radius: 5px;
@@ -33,7 +34,7 @@
 
 .picture-card__image {
   height: 90%;
-  margin-top: 5%;
+  margin-top: 2rem;
   width: 90%;
   object-fit: contain;
   border-radius: 5px;
