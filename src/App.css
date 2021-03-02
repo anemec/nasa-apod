@@ -7,6 +7,7 @@
   height: 5vh;
   padding-top: 1rem;
   background-color: rgba(118, 125, 190, 0.849);
+  color: ;
 }
 
 .picture-card {
@@ -37,8 +38,19 @@
   margin-top: 2rem;
   width: 90%;
   object-fit: contain;
-  border-radius: 5px;
+  border-radius: 0.5rem;
   /* border: 1px solid rgba(0, 0, 0, 0.8); */
+}
+.picture-card__explanation {
+  padding: 3rem;
+}
+.picture-card__explanation h1 {
+  font-size: 3.5rem;
+  margin-bottom: 2rem;
+}
+
+.picture-card__explanation p {
+  font-size: 2rem;
 }
 
 .btn-container {
