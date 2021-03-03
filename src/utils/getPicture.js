@@ -1,3 +1,4 @@
+import { useEffect, useRef, useState } from "react";
 import { DateTime } from "luxon";
 
 const api_key = "niZVSOJ40Nb7weWx6264maBqHdwQJG3JtSShDAeM";
@@ -27,4 +28,27 @@ export async function getPicture(url = defaultUrl) {
   return data;
 }
 
-// export default getPicture;
+const useFetch = (url) => {
+  const cache = useRef({});
+  const [status, setStatus] = useState("idle");
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    if (!url) return;
+    const getData = async () => {
+      setStatus("fetching");
+      if (cache.current[url]) {
+        setData(cache.current[url]);
+        setStatus("fetched");
+      } else {
+        const response = await fetch(url);
+        const result = await response.json();
+        cache.current[url] = result;
+        setData(result);
+        setStatus("fetched");
+      }
+    };
+    getData();
+  }, [url]);
+  return { status, data };
+};
