@@ -5,18 +5,17 @@ const ImageLoad = (props) => {
   console.log(props.isFlipped);
   return (
     <>
-      {props.isFlipped ? (
-        <div className="picture-card__explanation">
-          <h1>Explanation</h1>
-          <p>{props.data.explanation}</p>
-        </div>
-      ) : (
+      <div className="picture-card__explanation">
+        <h1>Explanation</h1>
+        <p>{props.data.explanation}</p>
+      </div>
+      <div className="picture-card__wrapper">
         <img
           className="picture-card__image"
           src={props.data.hdurl}
           alt={props.data.title}
         />
-      )}
+      </div>
     </>
   );
 };

@@ -7,7 +7,6 @@
   height: 5vh;
   padding-top: 1rem;
   background-color: rgba(118, 125, 190, 0.849);
-  color: ;
 }
 
 .picture-card {
@@ -17,13 +16,15 @@
   padding: 2rem;
   width: 80vw;
   max-width: 80rem;
-  height: 80vh;
+  height: 70vh;
   margin-top: 5rem;
   border-radius: 5px;
   box-shadow: 0 1.5rem 2.5rem rgba(0, 0, 0, 0.7);
+  perspective: 2000px;
 }
 
 .picture-card__image-holder {
+  position: relative;
   margin-left: 5%;
   margin-top: 2rem;
   height: 90%;
@@ -31,18 +32,34 @@
   background-color: white;
   border-radius: 5px;
   box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.2);
+  transition: all 1s;
+  transform-style: preserve-3d;
+}
+
+.picture-card__image-holder:hover {
+  box-shadow: 0 3rem 3rem rgba(0, 0, 0, 0.5);
+  transform: rotateY(180deg);
+}
+
+.picture-card__wrapper {
+  position: absolute;
+  backface-visibility: hidden;
+  height: 90%;
+  margin-top: 5%;
+  width: 100%;
 }
 
 .picture-card__image {
-  height: 90%;
-  margin-top: 2rem;
-  width: 90%;
+  height: 100%;
+  max-width: 95%;
   object-fit: contain;
   border-radius: 0.5rem;
-  /* border: 1px solid rgba(0, 0, 0, 0.8); */
 }
 .picture-card__explanation {
+  position: absolute;
   padding: 3rem;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
 }
 .picture-card__explanation h1 {
   font-size: 3.5rem;
@@ -78,4 +95,10 @@
 }
 
 .btn-container__btn-right {
+}
+
+@media (max-width: 800px) {
+  .header {
+    font-size: 2rem;
+  }
 }

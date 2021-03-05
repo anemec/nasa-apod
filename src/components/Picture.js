@@ -1,12 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import {
-  getDefaultUrl,
-  getNextDateUrl,
-  getPrevDateUrl,
-} from '../utils/getPicture';
-import ImageLoad from './ImageLoad';
-import Loading from './Loading';
-import useFetch from '../utils/useFetch';
+import React, { useState, useEffect } from "react";
+import { getDefaultUrl, getNextDateUrl, getPrevDateUrl } from "../utils/getUrl";
+import ImageLoad from "./ImageLoad";
+import Loading from "./Loading";
+import useFetch from "../utils/useFetch";
 
 const defaultUrl = getDefaultUrl();
 
@@ -21,31 +17,31 @@ const Picture = () => {
 
   return (
     <>
-      <div className='picture-card'>
-        <h1 className='picture-card__title'>{data && data.title}</h1>
+      <div className="picture-card">
+        <h1 className="picture-card__title">{data && data.title}</h1>
         <div
-          className='picture-card__image-holder'
+          className="picture-card__image-holder"
           onClick={() => setFlipped(!flipped)}
         >
-          {status === 'fetching' ? (
+          {status === "fetching" ? (
             <Loading />
           ) : (
             <ImageLoad data={data} isFlipped={flipped} />
           )}
         </div>
       </div>
-      <div className='btn-container'>
+      <div className="btn-container">
         <button
-          className='btn-container__btn btn-container__btn-left'
+          className="btn-container__btn btn-container__btn-left"
           onClick={() => setUrl(getPrevDateUrl(data.date))}
         >
-          {'<'}
+          {"<"}
         </button>
         <button
-          className='btn-container__btn btn-container__btn-right'
+          className="btn-container__btn btn-container__btn-right"
           onClick={() => setUrl(getNextDateUrl(data.date))}
         >
-          {'>'}
+          {">"}
         </button>
       </div>
     </>

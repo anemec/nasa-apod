@@ -1,6 +1,6 @@
-import { DateTime } from 'luxon';
+import { DateTime } from "luxon";
 
-const api_key = 'niZVSOJ40Nb7weWx6264maBqHdwQJG3JtSShDAeM';
+const api_key = "niZVSOJ40Nb7weWx6264maBqHdwQJG3JtSShDAeM";
 const defaultUrl = `https://api.nasa.gov/planetary/apod?api_key=${api_key}`;
 
 export function getDefaultUrl() {
